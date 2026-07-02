@@ -1,0 +1,26 @@
+{
+  "name": "xelt-server",
+  "version": "1.0.0",
+  "description": "Xelt x402 resource server on Algorand",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx index.ts",
+    "dev": "tsx watch index.ts",
+    "dev:fresh": "node scripts/free-port.mjs && tsx watch index.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@hono/node-server": "^2.0.2",
+    "x402-casper": "file:../packages/x402-casper",
+    "@x402/core": "^2.17.0",
+    "@x402/hono": "^2.17.0",
+    "casper-js-sdk": "^5.0.12",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.19"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "tsx": "^4.22.0",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,15 @@
+export const ErrInvalidScheme = 'invalid_exact_casper_scheme';
+export const ErrNetworkMismatch = 'invalid_exact_casper_network_mismatch';
+export const ErrInvalidVersion = 'invalid_exact_casper_invalid_version';
+export const ErrInvalidPayload = 'invalid_exact_casper_payload';
+export const ErrInvalidDeploy = 'invalid_exact_casper_invalid_deploy';
+export const ErrNotTransfer = 'invalid_exact_casper_not_transfer';
+export const ErrAmountMismatch = 'invalid_exact_casper_amount_mismatch';
+export const ErrReceiverMismatch = 'invalid_exact_casper_receiver_mismatch';
+export const ErrChainMismatch = 'invalid_exact_casper_chain_mismatch';
+export const ErrInvalidSignature = 'invalid_exact_casper_invalid_signature';
+export const ErrExpired = 'invalid_exact_casper_expired';
+export const ErrReplay = 'invalid_exact_casper_replay';
+export const ErrInsufficientBalance = 'invalid_exact_casper_insufficient_balance';
+export const ErrSettleFailed = 'invalid_exact_casper_settlement_failed';
+export const ErrConfirmationFailed = 'invalid_exact_casper_confirmation_failed';
