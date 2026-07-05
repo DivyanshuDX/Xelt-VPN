@@ -59,16 +59,6 @@ There are three Casper accounts (plus the facilitator) in play. All are **Testne
 | 💧 **Payee (native CSPR)** — receives CSPR | `020332de…ec74d93f` | local | [account ↗](https://testnet.cspr.live/account/020332def46c79fa31c3b2996fb8eb18c9d7a96510392b6f01a22561a1fcec74d93f) |
 | 🤖 **Facilitator (CSPR.cloud)** — relays + pays gas | `0202b2d6…2e00032a3449` | cloud | run by CSPR.cloud |
 
-> ### 👉 So what is "payTo"?
-> In **cloud** mode, the account that receives your VPN payment is
-> **`PAYEE_ADDRESS = 005aa260…8d9a61`**, whose public key is **`012bc40f…2d11efa5`**.
-> In this demo that account is *also* the token treasury/deployer — i.e. the same
-> account that mints X402 and funds the app wallet also collects the fares. In a real
-> deployment you'd point `PAYEE_ADDRESS` at a separate revenue account.
->
-> In **local** mode the payTo is **`CSPR_PAYTO = 020332de…ec74d93f`** and it receives
-> **native CSPR**.
-
 ### Where the app wallet's private key lives
 
 The cloud-mode app wallet is generated **inside the app** and stored on **your machine
@@ -208,22 +198,6 @@ Wiring: client `vpnConnectWithPayment` → `createX402Fetch` (`x402-casper`
                                                │   WireGuard server   │
                                                └──────────────────────┘
 ```
-
----
-
-## Live on-chain examples
-
-Real Testnet transactions from this project — click through on
-[testnet.cspr.live](https://testnet.cspr.live):
-
-| What | Result | Link |
-|------|--------|------|
-| Treasury funds the app wallet (`200 X402`, plain CEP-18 `transfer`) | ✅ settled | [`667b3014…1779ecca`](https://testnet.cspr.live/transaction/667b3014e2a549a75d176f9746fba97be530e2645795728c04869e1a1779ecca) |
-| A `/connect` payment **before** the app wallet was funded | ❌ `User error: 60001` (InsufficientBalance) | [`1c43a7b1…5566b995`](https://testnet.cspr.live/transaction/1c43a7b13bca481700ee6621836aaf6310463f78927632083d5721b45566b995) |
-
-> The failed one is the teachable case: the facilitator *did* put it on-chain and paid
-> ~2.27 CSPR gas, but the token contract couldn't move 12.5 X402 out of an account
-> holding **0**, so it reverted with `60001`. Funding the app wallet with X402 fixes it.
 
 ---
 
